@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday My Love ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    text-align: center;
+    color: white;
+}
+
+#intro {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#chest {
+    width: 220px;
+    cursor: pointer;
+    transition: transform 0.4s;
+}
+
+#chest:hover {
+    transform: scale(1.1);
+}
+
+.hidden {
+    display: none;
+}
+
+#content {
+    padding: 40px 20px;
+    animation: fadeIn 2s ease;
+}
+
+.gallery img {
+    width: 200px;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO SCREEN -->
+<div id="intro">
+    <h1>Tap to Open Your Surprise 💝</h1>
+    <img id="chest" src="https://i.imgur.com/9XqR7Xf.png" alt="Chest">
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="content" class="hidden">
+    <h1>🎂 Happy Birthday My Love 🎂</h1>
+
+    <p>
+        You are the most beautiful part of my life.
+        This small surprise is only for you ❤️
+    </p>
+
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1542826438-8bde89b1d2b0">
+        <img src="https://images.unsplash.com/photo-1607083206339-79c47d3fbe66">
+    </div>
+
+    <p>
+        May your life be full of smiles, love, and happiness.
+        I promise to always be by your side 💕
+    </p>
+</div>
+
+<!-- MUSIC -->
+<audio id="song">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+</audio>
+
+<script>
+const chest = document.getElementById("chest");
+const intro = document.getElementById("intro");
+const content = document.getElementById("content");
+const song = document.getElementById("song");
+
+chest.addEventListener("click", () => {
+    chest.src = "https://i.imgur.com/Jt3Wk8N.png"; // open chest
+    song.play();
+
+    setTimeout(() => {
+        intro.style.display = "none";
+        content.classList.remove("hidden");
+    }, 1200);
+});
+</script>
+
+</body>
+</html>
