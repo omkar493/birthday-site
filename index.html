@@ -2,53 +2,142 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy Birthday My Love ❤️</title>
+<title>Happy Birthday ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #ff758c, #ff7eb3);
-    text-align: center;
-    color: white;
+* {
+  box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  color: white;
+}
+
+/* ================= INTRO (CHEST) ================= */
 #intro {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #1a1a1a, #000);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+#intro h2 {
+  margin-bottom: 20px;
+  font-weight: 400;
 }
 
 #chest {
-    width: 220px;
-    cursor: pointer;
-    transition: transform 0.4s;
+  width: 200px;
+  cursor: pointer;
+  transition: transform 0.4s ease;
 }
 
 #chest:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
-.hidden {
-    display: none;
+/* Sparkles */
+.sparkle {
+  position: fixed;
+  color: gold;
+  font-size: 18px;
+  animation: sparkle 1.5s linear forwards;
+  z-index: 11;
 }
 
-#content {
-    padding: 40px 20px;
-    animation: fadeIn 2s ease;
+@keyframes sparkle {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(-120px) scale(0); }
 }
 
-.gallery img {
-    width: 200px;
-    border-radius: 15px;
-    margin: 10px;
+/* ================= MAIN PAGE ================= */
+#main {
+  position: fixed;
+  inset: 0;
+  background: url("birthday-bg.jpg") center / cover no-repeat;
+  display: none;
+}
+
+#overlay {
+  background: rgba(0, 0, 0, 0.35);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 2s ease forwards;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.6em;
+  margin-bottom: 10px;
+}
+
+p {
+  max-width: 600px;
+  margin: 10px auto;
+  font-size: 1.1em;
+}
+
+/* Center Image */
+.center-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 20px auto;
+  border: 4px solid rgba(255,255,255,0.9);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* ================= BALLOONS ================= */
+.balloon {
+  position: fixed;
+  bottom: -100px;
+  font-size: 40px;
+  animation: floatBalloon 12s linear infinite;
+  opacity: 0.85;
+  z-index: 2;
+}
+
+@keyframes floatBalloon {
+  from { transform: translateY(0); }
+  to { transform: translateY(-120vh); }
+}
+
+/* ================= CONFETTI ================= */
+.confetti {
+  position: fixed;
+  top: -10px;
+  font-size: 18px;
+  animation: confettiFall 5s linear forwards;
+  z-index: 3;
+}
+
+@keyframes confettiFall {
+  to {
+    transform: translateY(120vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 </style>
 </head>
@@ -57,49 +146,81 @@ body {
 
 <!-- INTRO SCREEN -->
 <div id="intro">
-    <h1>Tap to Open Your Surprise 💝</h1>
-    <img id="chest" src="https://i.imgur.com/9XqR7Xf.png" alt="Chest">
+  <h2>Tap to open your surprise 💝</h2>
+  <img id="chest" src="chest-closed.png" alt="Chest">
 </div>
 
-<!-- MAIN CONTENT -->
-<div id="content" class="hidden">
-    <h1>🎂 Happy Birthday My Love 🎂</h1>
+<!-- MAIN WEBSITE -->
+<div id="main">
+  <div id="overlay">
+    <h1>🎉 Happy Birthday Anjali 🎉</h1>
+    <p style="font-style: italic;">— my forever favorite person 💖</p>
+
+    <img src="her-photo.jpg" class="center-img" alt="Her Photo">
 
     <p>
-        You are the most beautiful part of my life.
-        This small surprise is only for you ❤️
+      From the moment you came into my life,  
+      every day has felt brighter and warmer 🌸
     </p>
-
-    <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1542826438-8bde89b1d2b0">
-        <img src="https://images.unsplash.com/photo-1607083206339-79c47d3fbe66">
-    </div>
 
     <p>
-        May your life be full of smiles, love, and happiness.
-        I promise to always be by your side 💕
+      I promise to stand by you, celebrate you,  
+      and love you — today and always ❤️
     </p>
+  </div>
 </div>
+
+<!-- BALLOONS -->
+<div class="balloon" style="left:5%">🎈</div>
+<div class="balloon" style="left:25%; animation-delay:2s">🎈</div>
+<div class="balloon" style="left:45%; animation-delay:4s">🎈</div>
+<div class="balloon" style="left:65%; animation-delay:6s">🎈</div>
+<div class="balloon" style="left:85%; animation-delay:8s">🎈</div>
 
 <!-- MUSIC -->
 <audio id="song">
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+  <source src="birthday-song.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 const chest = document.getElementById("chest");
 const intro = document.getElementById("intro");
-const content = document.getElementById("content");
+const main = document.getElementById("main");
 const song = document.getElementById("song");
 
-chest.addEventListener("click", () => {
-    chest.src = "https://i.imgur.com/Jt3Wk8N.png"; // open chest
-    song.play();
+function createSparkle() {
+  const s = document.createElement("div");
+  s.className = "sparkle";
+  s.textContent = "✨";
+  s.style.left = Math.random() * window.innerWidth + "px";
+  s.style.top = "60%";
+  document.body.appendChild(s);
+  setTimeout(() => s.remove(), 1500);
+}
 
-    setTimeout(() => {
-        intro.style.display = "none";
-        content.classList.remove("hidden");
-    }, 1200);
+function createConfetti() {
+  const c = document.createElement("div");
+  c.className = "confetti";
+  c.textContent = ["🎊","🎉","✨","💖"][Math.floor(Math.random()*4)];
+  c.style.left = Math.random() * window.innerWidth + "px";
+  document.body.appendChild(c);
+  setTimeout(() => c.remove(), 5000);
+}
+
+chest.addEventListener("click", () => {
+  chest.src = "chest-open.png";
+  song.play();
+
+  for (let i = 0; i < 25; i++) {
+    setTimeout(createSparkle, i * 60);
+  }
+
+  setInterval(createConfetti, 300);
+
+  setTimeout(() => {
+    intro.style.display = "none";
+    main.style.display = "block";
+  }, 1500);
 });
 </script>
 
